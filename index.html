@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Color Palette Generator</title>
+        <style>
+            text {font-weight: bold, padding 60px; text-align: center; }
+            .box {width: 250px; height: 350px; display: inline-block; margin: 10px; }
+            button { background-color: black; color:white; border-radius: 10px; margin-top: 10px; padding: 7px 15px; font-size: 34px; }
+        </style>
+    </head>
+    <body>
+        <h1>COLOR PALETTE GENERATOR</h1>
+        <div id="palette">
+            <div id="colorbox1" class="box"></div>
+            <div id="colorbox2" class="box"></div>
+            <div id="colorbox3" class="box"></div>
+        </div>
+        <button onclick="color()">Generate Colors</button>
+        <script>
+            function randomcolor() {
+                return Math.floor(Math.random() * 360);
+            }
+
+            function shades(color1) {
+                const color2 = (color1 + 120) % 360;
+                const color3 = (color1 + 240) % 360;
+                return [color1, color2, color3];
+            }
+
+            function color() {
+                const color1 = randomcolor();
+                const colors = shades(color1);
+                colors.forEach((hue, index) => {
+                    const colorBox = document.querySelector(`#colorbox${index + 1}`);
+                    const color = `hsl(${hue}, 69%, 49%)`;
+                    colorBox.style.backgroundColor = color;
+                });
+            }
+        </script>
+        <h2>(I was up all night making this)</h2>
+    </body>
+</html>
