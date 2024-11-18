@@ -30,9 +30,9 @@
             function color() {
                 const color1 = randomcolor();
                 const colors = shades(color1);
-                colors.forEach((hue, index) => {
+                colors.forEach((colorshade, index) => {
                     const colorBox = document.querySelector(`#colorbox${index + 1}`);
-                    const color = `hsl(${hue}, 69%, 49%)`;
+                    const color = `hsl(${colorshade}, 69%, 49%)`;
                     colorBox.style.backgroundColor = color;
                 });
             }
